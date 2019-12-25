@@ -3,4 +3,14 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+ <!-- Modo roots antes do servlet 3.0 -->        
+<!--          <servlet> -->
+<!--          	<servlet-name>ContatoServlet</servlet-name>  -->
+<!--          	<servlet-class>br.com.alura.maven.lojaweb.ContatoServlet</servlet-class> -->
+<!--          </servlet> -->
+         
+<!--          <servlet-mapping> -->
+<!--          	<servlet-name>ContatoServlet</servlet-name> -->
+<!--          	<url-pattern>/contato</url-pattern> -->
+<!--          </servlet-mapping> -->
 </web-app>

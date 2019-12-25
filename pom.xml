@@ -32,6 +32,20 @@
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-maven-plugin</artifactId>
 			<version>9.4.24.v20191120</version>
+			<!-- Hot deploy, sem precisar reiniciar o jetty via botao, reinicia o servidor automaticamente-->
+			<configuration>
+				<scanIntervalSeconds>10</scanIntervalSeconds>
+				<webApp>
+					<contextPath>/loja</contextPath>
+				</webApp>
+			</configuration>
+			<executions>
+				<execution>
+					<goals>
+						<goal>run</goal>
+					</goals>
+				</execution>
+			</executions>
 		</plugin>
 	</plugins>
   </build>
