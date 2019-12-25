@@ -26,31 +26,31 @@ http://mvnrepository.com/
 *** AULA03 - Repositorio remoto e local
 Repositorio local:
 
-No Windows, o diretório deve ficar dentro do diretório de seu usuário, .m2 e repository.
+No Windows, o diretï¿½rio deve ficar dentro do diretï¿½rio de seu usuï¿½rio, .m2 e repository.
 
-Já em sistemas Linux, você deve encontrar um diretório "invisível" (devido ao ponto na frente) na Home do usuário, chamado .m2, dentro do qual estará o repository.
+Jï¿½ em sistemas Linux, vocï¿½ deve encontrar um diretï¿½rio "invisï¿½vel" (devido ao ponto na frente) na Home do usuï¿½rio, chamado .m2, dentro do qual estarï¿½ o repository.
 
-Para executar o maven offline sem checar atualizações das dependências:
+Para executar o maven offline sem checar atualizaï¿½ï¿½es das dependï¿½ncias:
 
 mvn -o <comando goal>
 
 Repositorio central do maven (remoto)
 http://repo.maven.apache.org/maven2/
 
-É onde fica localizado todo os arquivos que trabalham com o maven, é daqui que os arquivos são copiados.
+ï¿½ onde fica localizado todo os arquivos que trabalham com o maven, ï¿½ daqui que os arquivos sï¿½o copiados.
 
-O maven possue um repositorio local, quando cria um novo projeto via linha de comando por exemplo, o mven não baixa por exemplo o junit
-novamente, por que ele já existe no repositorio local.
+O maven possue um repositorio local, quando cria um novo projeto via linha de comando por exemplo, o mven nï¿½o baixa por exemplo o junit
+novamente, por que ele jï¿½ existe no repositorio local.
 
 O maven baixa do repositorio remoto para o repositorio local
 
-Para adicionar o endereço de um novo repositorio basta adicionar 
+Para adicionar o endereï¿½o de um novo repositorio basta adicionar 
 <repositories>
 ver link https://maven.apache.org/pom.html
 
-A vantagem de se manter um repositório local é que é possível realizar um cache entre vários projetos que utilizam o Maven. Dessa forma, tudo que já estiver salvo no repositório local é utilizado e compartilhado, não sendo necessário realizar novos downloads.
+A vantagem de se manter um repositï¿½rio local ï¿½ que ï¿½ possï¿½vel realizar um cache entre vï¿½rios projetos que utilizam o Maven. Dessa forma, tudo que jï¿½ estiver salvo no repositï¿½rio local ï¿½ utilizado e compartilhado, nï¿½o sendo necessï¿½rio realizar novos downloads.
 
-Vale lembrar que o repositório local fica disponível na pasta do usuário, e por esse motivo não estará disponível para diferentes usuários de um mesmo computador.
+Vale lembrar que o repositï¿½rio local fica disponï¿½vel na pasta do usuï¿½rio, e por esse motivo nï¿½o estarï¿½ disponï¿½vel para diferentes usuï¿½rios de um mesmo computador.
 
 *** AULA04 - Relatorios de qualidade e cobertura
 
@@ -71,49 +71,49 @@ deploy - done in the build environment, copies the final package to the remote r
 These lifecycle phases (plus the other lifecycle phases not shown here) are executed sequentially to complete the default lifecycle. Given the lifecycle phases above, this means that when the default lifecycle is used, Maven will first validate the project, then will try to compile the sources, run those against the tests, package the binaries (e.g. jar), run integration tests against that package, verify the integration tests, install the verified package to the local repository, then deploy the installed package to a remote repository.
 
 Cada fase executa a fase anterior.
-Esmiuçando as fases:
+Esmiuï¿½ando as fases:
 
-1. Validação: verificamos se projeto possui todas as informações necessárias
+1. Validaï¿½ï¿½o: verificamos se projeto possui todas as informaï¿½ï¿½es necessï¿½rias
 
-2. Compilação: compilar os conteúdos
+2. Compilaï¿½ï¿½o: compilar os conteï¿½dos
 
 3. Teste: realizar testes diferentes no projeto
 
-4. Pacote: geração de um pacote do projeto
+4. Pacote: geraï¿½ï¿½o de um pacote do projeto
 
-5. Teste de integração: realizar testes de integração
+5. Teste de integraï¿½ï¿½o: realizar testes de integraï¿½ï¿½o
 
-6. Verificação: checagem do pacote gerado
+6. Verificaï¿½ï¿½o: checagem do pacote gerado
 
-7. Instalação: realizar a instalação do pacote no repositório local
+7. Instalaï¿½ï¿½o: realizar a instalaï¿½ï¿½o do pacote no repositï¿½rio local
 
-8. Implantação: realizar a implantação no ambiente adequado
+8. Implantaï¿½ï¿½o: realizar a implantaï¿½ï¿½o no ambiente adequado
 
-Podemos forçar a ordem de etapas com opções da linha de comando, como não gerar testes, por meio do comando -DskipTests=true:
+Podemos forï¿½ar a ordem de etapas com opï¿½ï¿½es da linha de comando, como nï¿½o gerar testes, por meio do comando -DskipTests=true:
 
 mvn -DskipTests=true package
 
 * Incluindo plugins
 Comando do plugin pmd:
 pmd:pmd 
-gera apenas um report das violações
+gera apenas um report das violaï¿½ï¿½es
 
-Gera no diretório:
+Gera no diretï¿½rio:
 produtos/target/site/pmd.html
 
-Report com as violações encontradas no fonte
+Report com as violaï¿½ï¿½es encontradas no fonte
 
 Utilizando o comando pmd:check (roda pmd:pmd antes)
-Gera o relatório e NÂO deixa passar a compilação emquanto os problemas não forem corrigidos, 
-conforme regras pré determinadas. VErifica se o report é valido ou não.
+Gera o relatï¿½rio e Nï¿½O deixa passar a compilaï¿½ï¿½o emquanto os problemas nï¿½o forem corrigidos, 
+conforme regras prï¿½ determinadas. VErifica se o report ï¿½ valido ou nï¿½o.
 
-O goal pmd:check se relaciona à fase verify.
+O goal pmd:check se relaciona ï¿½ fase verify.
 
 https://maven.apache.org/plugins/maven-pmd-plugin/check-mojo.html
 
 *** AULA05 - Criando projeto web - 
 Baixar a api da servlet
-configurar o wev.xml com a versão da servlet
+configurar o wev.xml com a versï¿½o da servlet
 
 Baixando api servlet e configurando web xml com a versao da servlet
 
@@ -121,3 +121,19 @@ mvn package
 gera o arquivo war ou jar conforme pom
 para listar os dados do arquivo
 unzip -l  <nomearquivo>
+
+*** AULA06 - Projeto web
+O escope abaixo indica que esta disponivel para compilar e rodar os testes
+      <scope>test</scope>
+
+O escopo compile ï¿½ o default, esta disponivel para compilar e quem depender tambem tera ele disponivel (em tempo de execuï¿½ï¿½o) 
+Ou seja quem precisa da loja web, precisa do stella e da sevlet api
+
+* Inserindo produto ocmom dependencia
+No pom da loja =web podemos incluir a dependencia do projeto produto, dentro do eclipse irï¿½ funcionar, mas se houver necesidade de 
+rodar aplicaï¿½ï¿½o fora do eclipse, ao executar maven package,acontecerï¿½ erro pq o produtos.jar nï¿½o estï¿½ instalado, ï¿½ preciso instala-lo 
+para rodar o maven package por fora.
+      <scope>compile</scope>
+
+Quando o projeto produtos Ã© instalado as classes de testes sÃ£o removidas
+

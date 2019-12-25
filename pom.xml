@@ -18,7 +18,13 @@
 		<groupId>javax.servlet</groupId>
 		<artifactId>javax.servlet-api</artifactId>
 		<version>3.1.0</version>
-	</dependency>    
+	</dependency> 
+	<dependency>
+		<groupId>br.com.alura.maven</groupId>
+		<artifactId>produtos</artifactId>
+		<version>1.0-SNAPSHOT</version>	
+	</dependency>
+	
 	<!-- https://mvnrepository.com/artifact/br.com.caelum.stella/caelum-stella-core -->
 	<dependency>
 	    <groupId>br.com.caelum.stella</groupId>
