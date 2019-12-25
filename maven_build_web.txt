@@ -1,0 +1,118 @@
+
+*** AULA01
+*criar perojeto na linha de comando
+mvn archetype:generate -DartifactId=produtos -DgroupId=br.com.alura.maven -DinteractiveMode=false -DarchetypeArtifactId=maven-archetype-quickstart
+
+mvn archetype:generate -DartifactId=produtos -DgroupId=br.com.alura.maven -DinteractiveMode=false -DarchetypeArtifactId=maven-archetype-quickstart
+*compilar o projeto
+mvn compile
+*Compilar o teste
+mvn test
+
+*relatorio
+Utilizando o plugin surefire-report para gerar relatorio .html:
+ mvn surefire-report:report
+gera no diretorio target\surefire
+
+*O maven pode empacotar em .jar (que Ã© o goal informado no pom.xml <packaging>jar</packaging>) utilizando o geuinte comando:
+mvn package
+
+*** AULA02 - Maven no eclipse
+importar projeto maven no eclipse
+adicionar dependencias utilizando o maven repository
+
+http://mvnrepository.com/
+
+*** AULA03 - Repositorio remoto e local
+Repositorio local:
+
+No Windows, o diretório deve ficar dentro do diretório de seu usuário, .m2 e repository.
+
+Já em sistemas Linux, você deve encontrar um diretório "invisível" (devido ao ponto na frente) na Home do usuário, chamado .m2, dentro do qual estará o repository.
+
+Para executar o maven offline sem checar atualizações das dependências:
+
+mvn -o <comando goal>
+
+Repositorio central do maven (remoto)
+http://repo.maven.apache.org/maven2/
+
+É onde fica localizado todo os arquivos que trabalham com o maven, é daqui que os arquivos são copiados.
+
+O maven possue um repositorio local, quando cria um novo projeto via linha de comando por exemplo, o mven não baixa por exemplo o junit
+novamente, por que ele já existe no repositorio local.
+
+O maven baixa do repositorio remoto para o repositorio local
+
+Para adicionar o endereço de um novo repositorio basta adicionar 
+<repositories>
+ver link https://maven.apache.org/pom.html
+
+A vantagem de se manter um repositório local é que é possível realizar um cache entre vários projetos que utilizam o Maven. Dessa forma, tudo que já estiver salvo no repositório local é utilizado e compartilhado, não sendo necessário realizar novos downloads.
+
+Vale lembrar que o repositório local fica disponível na pasta do usuário, e por esse motivo não estará disponível para diferentes usuários de um mesmo computador.
+
+*** AULA04 - Relatorios de qualidade e cobertura
+
+* Fases do maven
+
+A Build Lifecycle is Made Up of Phases
+Each of these build lifecycles is defined by a different list of build phases, wherein a build phase represents a stage in the lifecycle.
+
+For example, the default lifecycle comprises of the following phases (for a complete list of the lifecycle phases, refer to the Lifecycle Reference):
+
+validate - validate the project is correct and all necessary information is available
+compile - compile the source code of the project
+test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+package - take the compiled code and package it in its distributable format, such as a JAR.
+verify - run any checks on results of integration tests to ensure quality criteria are met
+install - install the package into the local repository, for use as a dependency in other projects locally
+deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+These lifecycle phases (plus the other lifecycle phases not shown here) are executed sequentially to complete the default lifecycle. Given the lifecycle phases above, this means that when the default lifecycle is used, Maven will first validate the project, then will try to compile the sources, run those against the tests, package the binaries (e.g. jar), run integration tests against that package, verify the integration tests, install the verified package to the local repository, then deploy the installed package to a remote repository.
+
+Cada fase executa a fase anterior.
+Esmiuçando as fases:
+
+1. Validação: verificamos se projeto possui todas as informações necessárias
+
+2. Compilação: compilar os conteúdos
+
+3. Teste: realizar testes diferentes no projeto
+
+4. Pacote: geração de um pacote do projeto
+
+5. Teste de integração: realizar testes de integração
+
+6. Verificação: checagem do pacote gerado
+
+7. Instalação: realizar a instalação do pacote no repositório local
+
+8. Implantação: realizar a implantação no ambiente adequado
+
+Podemos forçar a ordem de etapas com opções da linha de comando, como não gerar testes, por meio do comando -DskipTests=true:
+
+mvn -DskipTests=true package
+
+* Incluindo plugins
+Comando do plugin pmd:
+pmd:pmd 
+gera apenas um report das violações
+
+Gera no diretório:
+produtos/target/site/pmd.html
+
+Report com as violações encontradas no fonte
+
+Utilizando o comando pmd:check (roda pmd:pmd antes)
+Gera o relatório e NÂO deixa passar a compilação emquanto os problemas não forem corrigidos, 
+conforme regras pré determinadas. VErifica se o report é valido ou não.
+
+O goal pmd:check se relaciona à fase verify.
+
+https://maven.apache.org/plugins/maven-pmd-plugin/check-mojo.html
+
+*** AULA05 - Criando projeto web - 
+Baixar a api da servlet
+configurar o wev.xml com a versão da servlet
+
+Baixando api servlet e configurando web xml com a versao da servlet
