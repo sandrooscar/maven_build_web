@@ -129,11 +129,37 @@ O escope abaixo indica que esta disponivel para compilar e rodar os testes
 O escopo compile � o default, esta disponivel para compilar e quem depender tambem tera ele disponivel (em tempo de execu��o) 
 Ou seja quem precisa da loja web, precisa do stella e da sevlet api
 
-* Inserindo produto ocmom dependencia
+* Inserindo produto como dependencia
 No pom da loja =web podemos incluir a dependencia do projeto produto, dentro do eclipse ir� funcionar, mas se houver necesidade de 
 rodar aplica��o fora do eclipse, ao executar maven package,acontecer� erro pq o produtos.jar n�o est� instalado, � preciso instala-lo 
 para rodar o maven package por fora.
       <scope>compile</scope>
-
+*** IMPORTANTE ***
 Quando o projeto produtos é instalado as classes de testes são removidas
+
+Se o projeto que você precisa na dependencia esta no eclipse, ele adicina o link para esse projeto, caso contrário faz o link com o .jar 
+do repositorio local.
+
+Se você não possui o projeto no eclipse, as coisas funcionam como deveria funcionar, caso contrário o eclipse 
+tenta fazer o link com o projeto.
+
+Cuidar para não acessar classes de teste por exemplo, pq na produção estas classes NÃO são empacotadas.
+
+O <scope>provided</scope> indica que é usado para compilar, no entatno, o servidor fornecessa lib, consequentemente não precisa ir no pacode para produção.
+Lembrar de executar o clean antes de executar o package, para evitar que uma dependencia que tenha sido removida continue no package
+
+Sintetizando:
+<scope>provided</scope> -> pra compilar eu quero, pra rodar não, o servidor irá fornecer;
+<scope>compile</scope> -> default pra compilar e rodar
+<scope>runtime</scope> -> só em tempo de execução, runtime, quero só pra rodar
+
+O escopo compile indica que a dependência estará disponível em todos os classpaths: de compilação de teste e execução. Esse é o escopo padrão utilizado quando não declaramos um escopo na dependência.
+O escopo de runtime indica que não necessitamos da dependência para compilar. A dependência estará disponível no classpath de runtime, o que significa que utilizaremos a dependência na execução do projeto. A dependência também estará disponível no classpath de testes.
+
+Tomar cuidado com o runtime, pq ele fica disponivel no eclipse para rodar, no entanto permite que adicione 
+código desta biblioteca que ao gerar o compile do maven o erro de execução estoura.
+É possivel excluir dependenciar dentro das bibliotecas jar utilizando exclusions.
+
+
+
 
