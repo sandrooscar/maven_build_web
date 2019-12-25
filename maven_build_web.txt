@@ -116,3 +116,8 @@ Baixar a api da servlet
 configurar o wev.xml com a versão da servlet
 
 Baixando api servlet e configurando web xml com a versao da servlet
+
+mvn package 
+gera o arquivo war ou jar conforme pom
+para listar os dados do arquivo
+unzip -l  <nomearquivo>
